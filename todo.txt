@@ -1,0 +1,29 @@
+saved from url=(0057)http://sigma.acornscity.com/shadowrun/earthdawn_dice.html
+My blog post about the whys and wherefores of doing this at : xxxx
+TL;DR - If you are playing high circle, a basic roller won't cut it - and you need a roller at high circle far more than low.
+
+This feature list written here to keep me clear on what is going on:
+
+First release:
+  VS difficulty removed
+    - this is not required in 4th, as the mechanics were re-implemented to be 'every 5 over is an extra success'.
+  Steps re-implemented to be separate dice, with display of step
+    - the base roller did multiple d12's with modifications. WAT?!
+  Karma re-implemented to be variable step, variable amount.
+    - Anyone over 3rd circle can put in multiple karma, and spellcasters can alter their karma step. (Talisman Statue EDGM 4e p235)
+  Devotion added
+    - Questors get some love too.
+
+Later releases:
+  Probable average
+    - WTF average is step 33 + 4d10 Karma + 1d8 Devotion?
+  Graphics
+    - each die displayed as a nice little die shape.
+  Mid-roll die interruption
+    - Cursed karma etc can muck with your roll whilst it rolls.
+  Narratively important flag
+    - Part of logging. Now you can log whether RNGsus actually hates you.
+  Roll logging
+    - Now you can check what RNGsus likes/ hates.
+  Favourite rolls
+    - For common utility rolls that don't change much. Less typing yo.
