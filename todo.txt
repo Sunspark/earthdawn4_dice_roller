@@ -17,6 +17,8 @@ First release:
 Later releases:
   Probable average
     - WTF average is step 33 + 4d10 Karma + 1d8 Devotion?
+  Different steps of multiple Karma/ Devotion
+    - because your buddies might not be the same Karma/ Devotion level as you.
   Graphics
     - each die displayed as a nice little die shape.
   Mid-roll die interruption
