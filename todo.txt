@@ -7,7 +7,7 @@ This feature list written here to keep me clear on what is going on:
 First release:
   VS difficulty removed
     - this is not required in 4th, as the mechanics were re-implemented to be 'every 5 over is an extra success'.
-  Steps re-implemented to be separate dice, with display of step
+  Steps re-implemented to be separate dice
     - the base roller did multiple d12's with modifications. WAT?!
   Karma re-implemented to be variable step, variable amount.
     - Anyone over 3rd circle can put in multiple karma, and spellcasters can alter their karma step. (Talisman Statue EDGM 4e p235)
@@ -17,6 +17,8 @@ First release:
 Later releases:
   Probable average
     - WTF average is step 33 + 4d10 Karma + 1d8 Devotion?
+  Verbose output
+    - displays the step, step dice, other info
   Different steps of multiple Karma/ Devotion
     - because your buddies might not be the same Karma/ Devotion level as you.
   Graphics
