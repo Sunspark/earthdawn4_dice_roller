@@ -49,11 +49,15 @@ function getStepDice(stepNum)
     // get from the basic steps
     diceArr.push(stepDict['basicSteps'][stepNum-1]);
   } else {
-    var extraD20s = (Math.floor(stepNum / 11) - 1);
-    if (extraD20s < 0) { extraD20s = 0; }
-    for (var i = 0; i < extraD20s; i++) {diceArr.push(20)};
-
-    var tempStepNum = stepNum - (extraD20s * 11);
+    var tempStepNum = stepNum;
+    while (tempStepNum > 7) {
+      if (tempStepNum > 18) {
+        diceArr.push(20);
+        tempStepNum = tempStepNum - 11;
+      } else {
+        break;
+      }
+    }
     diceArr = diceArr.concat(stepDict['repeatStepDict'][tempStepNum]);
   }
   return diceArr;
