@@ -117,13 +117,13 @@ function roll(coreStepNum, karmaNumber, karmaStepNum, devotionNumber, devotionSt
   // roll the dice for Karma
   if (karmaNumber > 0 && karmaStepNum > 0) {
     results = AppendRollResults(results, karmaStepNum);
-    results.step = results.step.concat(" plus 1 Karma at step " + karmaStepNum);
+    results.step = results.step.concat(" plus " + karmaNumber + " Karma at step " + karmaStepNum);
   }
 
   // roll the dice for Devotion
   if (devotionNumber > 0 && devotionStepNum > 0) {
     results = AppendRollResults(results, devotionStepNum);
-    results.step = results.step.concat(" plus X Devotion at step " + devotionStepNum);
+    results.step = results.step.concat(" plus " + devotionNumber + " Devotion at step " + devotionStepNum);
   }
 
   // total the results

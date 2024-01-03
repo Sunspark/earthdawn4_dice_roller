@@ -24,7 +24,7 @@ Later releases:
   Graphics
     - each die displayed as a nice little die shape.
   Mid-roll die interruption
-    - Cursed karma etc can muck with your roll whilst it rolls.
+    - Cursed luck etc can muck with your roll whilst it rolls.
   Narratively important flag
     - Part of logging. Now you can log whether RNGsus actually hates you.
   Roll logging
