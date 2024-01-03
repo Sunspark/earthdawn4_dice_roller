@@ -1,5 +1,6 @@
 .styledDiv {font-size: 10pt; padding: 10px; background-color: #DFDFDF; -moz-border-radius: 4px; border: 1px solid; -moz-box-shadow: 2px 2px 2px #555555;}
 .styledTable {font-size: 10pt; background-color: #E5E5E5; -moz-border-radius: 4px; border: 1px solid;}
+div.footer{text-align: center;}
 .title {font-size: 24pt; font-weight: bold; text-align: center;}
 .headline {font-size: 18pt;}
 .centered {margin-left: auto; margin-right: auto;}
