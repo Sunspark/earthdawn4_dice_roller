@@ -14,9 +14,13 @@ First release:
   Devotion added
     - Questors get some love too.
 
-Later releases:
+Second release:
   Probable average
     - WTF average is step 33 + 4d10 Karma + 1d8 Devotion?
+    - https://www.analyticscheck.net/posts/exploding-dice
+    - Expected result = (sides / (sides - 1)) * ((sides + 1) / 2)
+
+Later releases:
   Verbose output
     - displays the step, step dice, other info
   Different steps of multiple Karma/ Devotion

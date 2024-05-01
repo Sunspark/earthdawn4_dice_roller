@@ -72,6 +72,20 @@ function doStepDiceRoll(dice)
   return stepResultDict;
 }
 
+function doAvgDiceRoll(dice)
+{
+  // https://www.analyticscheck.net/posts/exploding-dice
+  var stepResultDict = {
+    "rolls": new Array()
+  };
+  for (var i = 0; i < dice.length; i++) {
+    var rollArr = [];
+    rollArr[0] = (dice[i] / (dice[i] - 1)) * ((dice[i] + 1) / 2);   // (sides / (sides - 1)) * ((sides + 1) / 2);
+    stepResultDict.rolls = stepResultDict.rolls.concat(rollArr);
+  }
+  return stepResultDict;
+}
+
 function doStepRoll(stepNum)
 {
   // figure out the dice for the step
@@ -79,6 +93,23 @@ function doStepRoll(stepNum)
 
   // do the step rolls
   stepResultDict = doStepDiceRoll(dice);
+
+  // if step was 1 or 2, take modifier off.
+  if (stepNum == 1) {
+    stepResultDict.rolls.push(-2)
+  } else if (stepNum == 2) {
+    stepResultDict.rolls.push(-1)
+  }
+  return stepResultDict;
+}
+
+function doAvgRoll(stepNum)
+{
+  // figure out the dice for the step
+  dice = getStepDice(stepNum);
+
+  // do the step rolls
+  stepResultDict = doAvgDiceRoll(dice);
 
   // if step was 1 or 2, take modifier off.
   if (stepNum == 1) {
@@ -97,6 +128,13 @@ function AppendRollResults(results, stepNum)
   return results;
 }
 
+function AppendAverageResults(results, stepNum)
+{
+  stepResultDict = doAvgRoll(stepNum);
+  results.averages = results.averages.concat(stepResultDict.rolls);
+  return results;
+}
+
 function roll(coreStepNum, karmaNumber, karmaStepNum, devotionNumber, devotionStepNum)
 {
   var results = {
@@ -105,11 +143,14 @@ function roll(coreStepNum, karmaNumber, karmaStepNum, devotionNumber, devotionSt
     , "ones": 0
     , "result": -1
     , "step": ""
+    , "averages": new Array()
+    , "averageTotal": 0
   };
   
   // roll the core step dice
   if (coreStepNum > 0) {
     results = AppendRollResults(results, coreStepNum);
+    results = AppendAverageResults(results, coreStepNum);
     results.step = results.step.concat(coreStepNum);
   }
 
@@ -117,6 +158,7 @@ function roll(coreStepNum, karmaNumber, karmaStepNum, devotionNumber, devotionSt
   if (karmaNumber > 0 && karmaStepNum > 0) {
     for (var i = 0; i < karmaNumber; i++) {
       results = AppendRollResults(results, karmaStepNum);
+      results = AppendAverageResults(results, karmaStepNum);
     }
     results.step = results.step.concat(" plus " + karmaNumber + " Karma at step " + karmaStepNum);
   }
@@ -125,6 +167,7 @@ function roll(coreStepNum, karmaNumber, karmaStepNum, devotionNumber, devotionSt
   if (devotionNumber > 0 && devotionStepNum > 0) {
     for (var i = 0; i < devotionNumber; i++) {
       results = AppendRollResults(results, devotionStepNum);
+      results = AppendAverageResults(results, devotionStepNum);
     }
     results.step = results.step.concat(" plus " + devotionNumber + " Devotion at step " + devotionStepNum);
   }
@@ -134,6 +177,13 @@ function roll(coreStepNum, karmaNumber, karmaStepNum, devotionNumber, devotionSt
     results.rollTotal += results.rolls[i];
   }
   if (results.rollTotal < 1) {results.rollTotal = 1;}
+
+  // total the averages
+  for (var i = 0; i < results.averages.length; i++) {
+    results.averageTotal += results.averages[i];
+  }
+  if (results.averageTotal < 1) {results.averageTotal = 1;}
+  results.step = results.step.concat(". (Avg " + results.averageTotal.toFixed(2) + ")");
     
   return results;
 }
